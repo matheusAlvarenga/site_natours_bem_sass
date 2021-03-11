@@ -1,0 +1,107 @@
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, 0.8);
+    z-index: 1500;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.3s;
+
+    &__content {
+        width: 75%;
+        background-color: white;
+        position: absolute;
+        box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.3);
+        border-radius: 3px;
+        display: table;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.4s;
+    }
+
+    &__left {
+        width: 33.3%;
+        display: table-cell;
+        @include respond(tab-port) {
+            width: 100%;
+            display: table-row;
+        }
+    }
+
+    &__right {
+        padding: 3rem 5rem;
+        width: 66.7%;
+        display: table-cell;
+        vertical-align: middle;
+        position: relative;
+        @include respond(tab-port) {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        display: block;
+        @include respond(tab-port) {
+            height: 25vh;
+            width: 50%;
+            float: left;
+            display: table-cell;
+            object-fit: cover;
+        }
+    }
+
+    &__text {
+        columns: 2;
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+        column-gap: 2rem;
+        column-rule: 1px solid $color-grey-light-2;
+        hyphens: auto;
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            position: absolute;
+            z-index: 1600;
+            color: $color-grey-dark;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 1;
+
+            @include respond(tab-port) {
+                color: $color-black;
+                top: -24.5vh;
+                right: 1.2rem;
+            }
+        }
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
