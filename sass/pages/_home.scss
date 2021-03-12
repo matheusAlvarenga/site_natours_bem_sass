@@ -80,7 +80,7 @@
                 rgba($color-grey-light-1, 0.9) 64.88%,
                 transparent 65%
             ),
-            url("../../img/nat-10.jpg");
+            url("../img/nat-10.jpg");
     }
 
     @include respond(tab-port) {
@@ -89,7 +89,7 @@
                 rgba($color-grey-light-1, 0.9) 0%,
                 rgba($color-grey-light-1, 0.9) 100%
             ),
-            url("../../img/nat-10.jpg");
+            url("../img/nat-10.jpg");
     }
 
     &__form {
